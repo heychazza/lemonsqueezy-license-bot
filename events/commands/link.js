@@ -32,7 +32,7 @@ const invoke = async (interaction) => {
 
 	const body = await res.json();
 
-	if(! body.valid || body.meta.store_id !== 10861) {
+	if(! body.valid || body.meta.store_id !== process.env.LEMON_SQUEEZY_STORE_ID) {
 		return interaction.reply({
 			content: 'The license key you provided is invalid. Please try again.',
 			ephemeral: true,
@@ -45,11 +45,11 @@ const invoke = async (interaction) => {
 	const packageName = body.meta.variant_name;
 
 	// Assuming you pass the role ID as an option in your slash command
-	const channel = await interaction.guild.channels.fetch('1187105167036907630');
+	const channel = await interaction.guild.channels.fetch(process.env.LINK_CHANNEL_ID);
 	const guild = interaction.guild;
 
 	const member = await guild.members.fetch(userId);
-	const role = await guild.roles.fetch('1187104876908519484');
+	const role = await guild.roles.fetch(process.env.LINK_ROLE_ID);
 
 	try {
 		await member.roles.add(role);
