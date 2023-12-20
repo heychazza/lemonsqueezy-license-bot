@@ -5,11 +5,11 @@ import fetch from 'node-fetch';
 const create = () => {
 	const command = new SlashCommandBuilder()
 		.setName('link')
-		.setDescription('Link your PikaIcons license key to your Discord account')
+		.setDescription(process.env.LINK_COMMAND_DESCRIPTION)
 		.addStringOption((option) =>
 			option
 				.setName('key')
-				.setDescription('Your PikaIcons license key')
+				.setDescription(process.env.LINK_COMMAND_KEY_USAGE)
 				.setRequired(true)
 		);
 
