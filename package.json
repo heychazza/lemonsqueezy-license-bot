@@ -1,0 +1,17 @@
+{
+	"name": "lemonsqueezy",
+	"version": "1.0.0",
+	"main": "Bot.js",
+	"keywords": [],
+	"license": "MIT",
+	"dependencies": {
+		"discord.js": "^14.14.1",
+		"dotenv": "^16.3.1",
+		"node-fetch": "^3.3.2"
+	},
+	"imports": {
+		"#events/*": "./events/*",
+		"#commands/*": "./events/commands/*.js"
+	},
+	"type": "module"
+}
